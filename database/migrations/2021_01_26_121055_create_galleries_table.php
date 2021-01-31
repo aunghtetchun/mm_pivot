@@ -17,8 +17,8 @@ class CreateGalleriesTable extends Migration
             $table->bigIncrements('id');
 //            $table->string('photo');
             $table->string('group');
-            $table->string('title');
-            $table->longText('description');
+            $table->string('title')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

@@ -6,6 +6,9 @@
 body::-webkit-scrollbar {
     width: 0;
 }
+html{
+    scroll-behavior: smooth !important;
+}
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -315,4 +318,28 @@ div.dataTables_wrapper div.dataTables_info{
     td,th{
         white-space: nowrap !important;
     }
+}
+.cke_editable{
+    background:white !important;
+}
+#cke_1_top{
+    background: white !important;
+}
+
+#trapezoid {
+    border-bottom: 50px solid red;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    height: 0;
+}
+
+
+.tooltip-inner {
+    max-width: 200px;
+    padding: .30rem .5rem !important;
+    color: #10ff00 !important;
+    text-align: center;
+    background-color: #508cdf !important;
+    border-radius: .25rem;
+    font-weight: bold !important;
 }

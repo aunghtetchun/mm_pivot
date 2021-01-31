@@ -28,7 +28,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Group</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Description</th>
+                                <th scope="col">Photo</th>
                                 <th scope="col">Controls</th>
                                 <th scope="col">Created_at</th>
                             </tr>
@@ -42,7 +42,21 @@
 {{--                                    </td>--}}
                                     <td>{{ $g->group }}</td>
                                     <td>{{ $g->title }}</td>
-                                    <td>{{\App\Custom::toShort(strip_tags(html_entity_decode($g->description)),30) }}</td>
+                                    <td >
+                                        @foreach($g->getGalleryPhoto as $photo)
+                                                @component("component.venobox")
+                                                    @slot('original')
+                                                        {{ asset("/storage/gallery/".$photo->patch) }}
+                                                    @endslot
+                                                    @slot('thumbnail')
+                                                        <img src="{{ asset("/storage/thumbnail/".$photo->patch) }}" class=" rounded" alt="image alt" style="height: 50px" />
+                                                    @endslot
+                                                    @slot('body')
+
+                                                    @endslot
+                                                @endcomponent
+                                        @endforeach
+                                    </td>
                                     <td class="control-group d-flex" style="vertical-align: middle; text-align: center">
                                         <a href="{{ route('gallery.edit',$g->id) }}" class="btn mr-2 btn-outline-warning btn-sm">
                                             <i class="feather-edit"></i>
@@ -54,9 +68,9 @@
                                                 <i class="feather-trash-2"></i>
                                             </button>
                                         </form>
-                                        <a href="{{ route('gallery.show',$g->id) }}" class="btn ml-2 btn-outline-success btn-sm">
-                                            <i class="feather-eye"></i>
-                                        </a>
+{{--                                        <a href="{{ route('gallery.show',$g->id) }}" class="btn ml-2 btn-outline-success btn-sm">--}}
+{{--                                            <i class="feather-eye"></i>--}}
+{{--                                        </a>--}}
                                     </td>
                                     <td>{{ $g->created_at }}</td>
                                 </tr>

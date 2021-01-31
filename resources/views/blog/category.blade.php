@@ -5,16 +5,18 @@
 @section('content')
 
     @component("component.breadcrumb",["data"=>[
-        "Category" => "category.category",
+
     ]])
-        @slot("last")  @endslot
+        @slot("last")
+            Category
+        @endslot
     @endcomponent
 
     <div class="row">
         <div class="col-12 col-md-9">
                 @component("component.card")
                     @slot('icon') <i class="feather-file text-primary"></i> @endslot
-                    @slot('title')  {{ isset($blogCategory) ? 'Edit Blog Category ' : "Add Blog Category" }}@endslot
+                    @slot('title')  {{ isset($blogCategory) ? 'Edit Category ' : "Manage Category" }}@endslot
                     @slot('button')  @endslot
                     @slot('body')
                         @if(isset($blogCategory))

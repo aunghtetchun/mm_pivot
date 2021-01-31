@@ -14,6 +14,10 @@ class GalleryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $galleries=Gallery::latest()->get();
@@ -42,7 +46,7 @@ class GalleryController extends Controller
             "title" => "required",
             "group"=> "required",
             "images"=>"required",
-            "description"=>"required",
+//            "description"=>"required",
         ]);
         $gallery=new Gallery();
         $gallery->title=$request->title;
@@ -106,7 +110,7 @@ class GalleryController extends Controller
         $request->validate([
             "title" => "required",
             "group"=> "required",
-            "description"=>"required",
+//            "description"=>"required",
         ]);
         $gallery->title=$request->title;
         $gallery->group=$request->group;

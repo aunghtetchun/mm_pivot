@@ -43,3 +43,11 @@ Route::resource('/contact',"ContactController");
 Route::resource('/team',"TeamController");
 
 Route::resource('/partner',"PartnerController");
+
+Route::resource('/project_photo',"ProjectPhotoController");
+
+Route::resource('/project',"ProjectController");
+
+Route::resource('/building',"BuildingController");
+
+Route::resource('/room',"RoomController");

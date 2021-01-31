@@ -11,7 +11,7 @@
     @endcomponent
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-md-6">
             @component("component.card")
                 @slot('icon') <i class="feather-file text-primary"></i> @endslot
                 @slot('title') Add Gallery @endslot
@@ -24,8 +24,7 @@
                     <div>
                         <form action="{{ route('gallery.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-row justify-content-between">
-                                <div class="col-12 col-md-6">
+
                                     <div class="form-group">
                                         <label for="title">Title</label>
                                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{old('title')}}" placeholder="Title">
@@ -45,18 +44,6 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">Description</label>
-                                        <textarea rows="5" class="form-control @error('street') is-invalid @enderror" name="description" id="description">{{old('description')}}</textarea>
-                                        @error('description')
-                                        <small class="invalid-feedback font-weight-bold" role="alert">
-                                            {{ $message }}
-                                        </small>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-
-                                    <div class="form-group">
                                         <label for="images">Photo</label>
                                         <div class="input-images"></div>
                                         @error('images')
@@ -69,11 +56,8 @@
                                             <div class="input-images-2" style="padding-top: .5rem;"></div>
                                         </div>
                                     </div>
-                                    <div class="col-12 text-right">
                                         <button type="submit" class="btn btn-primary " ><i class="fas fa-plus-square mr-1"></i> Add Gallery</button>
-                                    </div>
-                                </div>
-                            </div>
+
                             </form>
                     </div>
                 @endslot

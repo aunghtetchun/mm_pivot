@@ -37,7 +37,7 @@
                             @foreach($blogs as $b)
                                 <tr>
                                     <th scope="row">{{ $b->id }}</th>
-                                    <td>{{ $b->title }}</td>
+                                    <td>{{\App\Custom::toShort(strip_tags(html_entity_decode($b->title)),30) }}</td>
                                     <td>{{ $b->getBlogCategory->name }}</td>
                                     <td>{{\App\Custom::toShort(strip_tags(html_entity_decode($b->description)),40) }}</td>
                                     <td class="control-group d-flex" style="vertical-align: middle; text-align: center">

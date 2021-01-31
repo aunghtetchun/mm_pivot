@@ -53,7 +53,7 @@ class BlogController extends Controller
         $blog->description=$request->description;
         $blog->excert=Custom::toShort($blog->description,105) ;
         $blog->slug=Custom::create_slug($blog->title,15) ;
-//        return $blog;
+//        return Custom::toShort($blog->description,105);
         $blog->save();
         if ($request->hasFile('images')){
             $dir="public/blog";

@@ -13,10 +13,14 @@ class PartnerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $partners=Partner::latest()->get();
-        return view('partner.index',compact('partners'));
+        return view('partner.create',compact('partners'));
     }
 
     /**
@@ -70,7 +74,7 @@ class PartnerController extends Controller
      */
     public function show(Partner $partner)
     {
-        return view('partner.show',compact('partner'));
+//        return view('partner.show',compact('partner'));
     }
 
     /**
@@ -81,7 +85,7 @@ class PartnerController extends Controller
      */
     public function edit(Partner $partner)
     {
-        return view('partner.edit',compact('partner'));
+        return view('partner.create',compact('partner'));
     }
 
     /**
@@ -95,7 +99,7 @@ class PartnerController extends Controller
     {
         $request->validate([
             "name" => "required",
-            "photo"=>"required"
+//            "photo"=>"required"
         ]);
         $partner->name=$request->name;
 
@@ -114,7 +118,7 @@ class PartnerController extends Controller
             $partner->photo=$newName;
         }
         $partner->update();
-        return redirect()->route("partner.index")->with("toast","Partner Update Successful");
+        return redirect()->route("partner.create")->with("toast","Partner Update Successful");
     }
 
     /**
@@ -126,6 +130,6 @@ class PartnerController extends Controller
     public function destroy(Partner $partner)
     {
         $partner->delete();
-        return redirect()->route("partner.index")->with("toast","Partner Delete Successful");
+        return redirect()->route("partner.create")->with("toast","Partner Delete Successful");
     }
 }

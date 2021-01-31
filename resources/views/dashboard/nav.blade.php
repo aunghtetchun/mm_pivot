@@ -28,7 +28,7 @@
             @endcomponent
 
             @component('component.nav-spacer') @endcomponent
-            @component("component.nav-title") Blog & Category Management @endcomponent
+            @component("component.nav-title") Blog Management @endcomponent
 
             @component("component.nav-item")
                 @slot("icon") <i class="feather-plus-circle"></i> @endslot
@@ -43,18 +43,18 @@
             @endcomponent
 
             @component("component.nav-item-count")
-                @slot("icon") <i class="feather-list"></i> @endslot
+                @slot("icon") <i class="fas fa-blog"></i> @endslot
                 @slot("name") Blog List @endslot
                 @slot("link") {{ route('blog.index') }} @endslot
                 @slot("count") {{\App\Blog::count()}} @endslot
             @endcomponent
 
             @component('component.nav-spacer') @endcomponent
-            @component("component.nav-title") Product & Category Management @endcomponent
+            @component("component.nav-title") Product Management @endcomponent
 
             @component("component.nav-item")
                 @slot("icon") <i class="feather-plus-circle"></i> @endslot
-                @slot("name") Category @endslot
+                @slot("name") Product Category @endslot
                 @slot("link") {{ route('product_category.create') }} @endslot
             @endcomponent
 
@@ -65,7 +65,7 @@
             @endcomponent
 
             @component("component.nav-item-count")
-                @slot("icon") <i class="feather-list"></i> @endslot
+                @slot("icon") <i class="feather-hard-drive"></i> @endslot
                 @slot("name") Product List @endslot
                 @slot("link") {{ route('product.index') }} @endslot
                 @slot("count") {{\App\Product::count()}} @endslot
@@ -82,10 +82,44 @@
             @endcomponent
 
             @component("component.nav-item-count")
-                @slot("icon") <i class="feather-list"></i> @endslot
+                @slot("icon") <i class="far fa-images"></i> @endslot
                 @slot("name") Gallery List @endslot
                 @slot("link") {{ route('gallery.index') }} @endslot
                 @slot("count") {{\App\Gallery::count()}} @endslot
+            @endcomponent
+
+            @component('component.nav-spacer') @endcomponent
+
+            @component("component.nav-title") Project Management @endcomponent
+
+            @component("component.nav-item")
+                @slot("icon") <i class="feather-plus-circle"></i> @endslot
+                @slot("name") Add Project @endslot
+                @slot("link") {{ route('project.create') }} @endslot
+            @endcomponent
+
+            @component("component.nav-item-count")
+                @slot("icon") <i class="fas fa-project-diagram"></i> @endslot
+                @slot("name") Project List @endslot
+                @slot("link") {{ route('project.index') }} @endslot
+                @slot("count") {{\App\Project::count()}} @endslot
+            @endcomponent
+
+            @component('component.nav-spacer') @endcomponent
+
+            @component("component.nav-title") Building Management @endcomponent
+
+            @component("component.nav-item")
+                @slot("icon") <i class="feather-plus-circle"></i> @endslot
+                @slot("name") Add Building @endslot
+                @slot("link") {{ route('building.create') }} @endslot
+            @endcomponent
+
+            @component("component.nav-item-count")
+                @slot("icon") <i class="far fa-building"></i> @endslot
+                @slot("name") Building List @endslot
+                @slot("link") {{ route('building.index') }} @endslot
+                @slot("count") {{\App\Building::count()}} @endslot
             @endcomponent
 
             @component('component.nav-spacer') @endcomponent
@@ -99,35 +133,23 @@
             @endcomponent
 
             @component("component.nav-item-count")
-                @slot("icon") <i class="feather-list"></i> @endslot
+                @slot("icon") <i class="feather-user-plus"></i> @endslot
                 @slot("name") Team List @endslot
                 @slot("link") {{ route('team.index') }} @endslot
                 @slot("count") {{\App\Team::count()}} @endslot
             @endcomponent
 
-            @component('component.nav-spacer') @endcomponent
 
-            @component("component.nav-title") Partner Management @endcomponent
 
             @component("component.nav-item")
-                @slot("icon") <i class="feather-plus-circle"></i> @endslot
-                @slot("name") Add Partner @endslot
+                @slot("icon") <i class="far fa-handshake"></i> @endslot
+                @slot("name") Partner @endslot
                 @slot("link") {{ route('partner.create') }} @endslot
             @endcomponent
 
-            @component("component.nav-item-count")
-                @slot("icon") <i class="feather-list"></i> @endslot
-                @slot("name") Partner List @endslot
-                @slot("link") {{ route('partner.index') }} @endslot
-                @slot("count") {{\App\Partner::count()}} @endslot
-            @endcomponent
-
-            @component('component.nav-spacer') @endcomponent
-
-            @component("component.nav-title") Contact Management @endcomponent
 
             @component("component.nav-item-count")
-                @slot("icon") <i class="feather-list"></i> @endslot
+                @slot("icon") <i class="far fa-address-book"></i> @endslot
                 @slot("name") Contact List @endslot
                 @slot("link") {{ route('contact.index') }} @endslot
                 @slot("count") {{\App\Contact::count()}} @endslot

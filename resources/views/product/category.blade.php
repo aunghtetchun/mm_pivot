@@ -5,9 +5,8 @@
 @section('content')
 
     @component("component.breadcrumb",["data"=>[
-        "Category" => "category.category",
     ]])
-        @slot("last")  @endslot
+        @slot("last") Category @endslot
     @endcomponent
 
     <div class="row">

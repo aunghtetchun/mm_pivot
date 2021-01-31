@@ -24,7 +24,7 @@ class Custom
         $text=stripslashes($text);
 
         if(strlen($text) >= $max){
-            return substr($text,0,$max)."...";
+            return mb_substr($text,0,$max,'UTF-8')."...";
         }else{
             return strip_tags($text);
         }
