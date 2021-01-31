@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2021 at 07:23 AM
+-- Generation Time: Jan 31, 2021 at 10:22 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -115,9 +115,39 @@ INSERT INTO `blog_photos` (`id`, `blog_id`, `patch`, `created_at`, `updated_at`)
 (19, 7, '60110116097aa_blog.png', '2021-01-26 23:28:46', '2021-01-26 23:28:46'),
 (20, 7, '601101161eeb6_blog.jpg', '2021-01-26 23:28:46', '2021-01-26 23:28:46'),
 (21, 7, '601101162d906_blog.jpg', '2021-01-26 23:28:46', '2021-01-26 23:28:46'),
-(22, 7, '6011011637189_blog.jpg', '2021-01-26 23:28:46', '2021-01-26 23:28:46'),
 (23, 7, '6011011643cbc_blog.png', '2021-01-26 23:28:46', '2021-01-26 23:28:46'),
 (24, 7, '6011011657d51_blog.png', '2021-01-26 23:28:46', '2021-01-26 23:28:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buildings`
+--
+
+CREATE TABLE `buildings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `floor` int(11) NOT NULL,
+  `b_column` int(11) NOT NULL,
+  `bardar` int(11) NOT NULL DEFAULT 0,
+  `information` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `condition` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `buildings`
+--
+
+INSERT INTO `buildings` (`id`, `project_id`, `floor`, `b_column`, `bardar`, `information`, `condition`, `photo`, `created_at`, `updated_at`) VALUES
+(1, 1, 3, 2, 1, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur atque aut culpa, dolorem doloremque error eveniet facilis harum impedit, incidunt labore libero mollitia nemo nostrum odio officiis quis quod tenetur.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur atque aut culpa, dolorem doloremque error eveniet facilis harum impedit, incidunt labore libero mollitia nemo nostrum odio officiis quis quod tenetur.', '60151c18a1cec_building.jpg', '2021-01-30 02:13:04', '2021-01-30 02:20:37'),
+(2, 2, 3, 4, 0, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur atque aut culpa, dolorem doloremque error eveniet facilis harum impedit, incidunt labore libero mollitia nemo nostrum odio officiis quis quod tenetur.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur atque aut culpa, dolorem doloremque error eveniet facilis harum impedit, incidunt labore libero mollitia nemo nostrum odio officiis quis quod tenetur.', '601548cf30236_building.jpg', '2021-01-30 02:17:10', '2021-01-31 02:06:25'),
+(4, 2, 3, 3, 0, 'info', 'condition', '60155ea7ad46c_building.jpg', '2021-01-30 06:57:03', '2021-01-30 06:57:03'),
+(5, 1, 3, 2, 0, 'hello info', 'hello condition', '6015626a3c6b5_building.jpg', '2021-01-30 07:13:06', '2021-01-30 07:13:06'),
+(6, 2, 6, 2, 0, 'info', 'condition', '601564039dcfd_building.jpg', '2021-01-30 07:19:55', '2021-01-30 07:19:55'),
+(7, 5, 5, 4, 0, 'hello this is information test edit', 'this is condition.....', '60166e1730c15_building.jpg', '2021-01-31 02:13:24', '2021-01-31 02:20:53');
 
 -- --------------------------------------------------------
 
@@ -146,8 +176,8 @@ CREATE TABLE `contacts` (
 CREATE TABLE `galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `group` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -169,7 +199,7 @@ INSERT INTO `galleries` (`id`, `group`, `title`, `description`, `created_at`, `u
 (10, 'Trading', 'ဟင်းချက်အိုးအစုံ', 'To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.', '2021-01-26 23:40:32', '2021-01-26 23:40:32'),
 (11, 'Manufacturing', 'ကြွေပြားအခင်း(၁)', 'To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.', '2021-01-26 23:41:55', '2021-01-26 23:41:55'),
 (12, 'Manufacturing', 'မီးဖိုချောင်', 'To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.', '2021-01-26 23:42:15', '2021-01-26 23:42:15'),
-(13, 'Manufacturing', 'ဘီဒို', 'To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.To help all as much as we can especially among all stakeholders without any bias and discriminations while going to our bunisess goal.', '2021-01-26 23:42:30', '2021-01-26 23:42:30');
+(13, 'Manufacturing', 'ဘီဒို', NULL, '2021-01-26 23:42:30', '2021-01-29 00:15:39');
 
 -- --------------------------------------------------------
 
@@ -240,7 +270,29 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2021_01_26_203639_create_gallery_photos_table', 1),
 (11, '2021_01_26_210209_create_contacts_table', 1),
 (12, '2021_01_26_211509_create_teams_table', 1),
-(13, '2021_01_26_221640_create_partners_table', 1);
+(13, '2021_01_26_221640_create_partners_table', 1),
+(14, '2021_01_29_092053_create_projects_table', 2),
+(15, '2021_01_29_092109_create_buildings_table', 2),
+(16, '2021_01_29_092119_create_rooms_table', 2),
+(17, '2021_01_29_093748_create_project_photos_table', 2),
+(18, '2021_01_29_093803_create_owner_infos_table', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `owner_infos`
+--
+
+CREATE TABLE `owner_infos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `room_id` int(11) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -363,6 +415,182 @@ INSERT INTO `product_photos` (`id`, `product_id`, `patch`, `created_at`, `update
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `name`, `photo`, `created_at`, `updated_at`) VALUES
+(1, 'Project One', '60151b36396f2_project.jpg', '2021-01-30 02:09:18', '2021-01-30 02:09:18'),
+(2, 'Project Two', '60151b46061ad_project.jpg', '2021-01-30 02:09:34', '2021-01-30 02:09:34'),
+(5, 'Naing Project', '60166d7670780_project.jpg', '2021-01-31 02:12:31', '2021-01-31 02:12:31'),
+(6, 'testing', '6016763358df4_project.jpg', '2021-01-31 02:49:47', '2021-01-31 02:49:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_photos`
+--
+
+CREATE TABLE `project_photos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `building_id` int(11) DEFAULT NULL,
+  `project_id` int(11) DEFAULT NULL,
+  `room_id` int(11) DEFAULT NULL,
+  `patch` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `project_photos`
+--
+
+INSERT INTO `project_photos` (`id`, `building_id`, `project_id`, `room_id`, `patch`, `created_at`, `updated_at`) VALUES
+(1, NULL, 1, NULL, '60151b364e57c_project.jpg', '2021-01-30 02:09:18', '2021-01-30 02:09:18'),
+(2, NULL, 1, NULL, '60151b3666322_project.jpg', '2021-01-30 02:09:18', '2021-01-30 02:09:18'),
+(3, NULL, 2, NULL, '60151b462552e_project.jpg', '2021-01-30 02:09:34', '2021-01-30 02:09:34'),
+(4, NULL, 2, NULL, '60151b4652663_project.jpg', '2021-01-30 02:09:35', '2021-01-30 02:09:35'),
+(5, 1, NULL, NULL, '60151c18b7630_building.jpg', '2021-01-30 02:13:04', '2021-01-30 02:13:04'),
+(6, 1, NULL, NULL, '60151c18c82e4_building.jpg', '2021-01-30 02:13:04', '2021-01-30 02:13:04'),
+(7, 1, NULL, NULL, '60151c18ee2ee_building.jpg', '2021-01-30 02:13:05', '2021-01-30 02:13:05'),
+(8, 2, NULL, NULL, '60151d0e081c5_building.jpg', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(9, 2, NULL, NULL, '60151d0e17cd8_building.jpg', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(10, 2, NULL, NULL, '60151d0e1f544_building.jpeg', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(13, 3, NULL, NULL, '60153072ee588_building.jpg', '2021-01-30 03:39:55', '2021-01-30 03:39:55'),
+(14, 3, NULL, NULL, '6015307337f57_building.jpg', '2021-01-30 03:39:55', '2021-01-30 03:39:55'),
+(15, 3, NULL, NULL, '6015307373e6c_building.jpg', '2021-01-30 03:39:55', '2021-01-30 03:39:55'),
+(19, 4, NULL, NULL, '60155ea7cea95_building.jpg', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(20, 4, NULL, NULL, '60155ea8127d5_building.jpg', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(21, 4, NULL, NULL, '60155ea86cb94_building.jpg', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(22, 5, NULL, NULL, '6015626a52127_building.jpg', '2021-01-30 07:13:06', '2021-01-30 07:13:06'),
+(23, 5, NULL, NULL, '6015626a65f99_building.jpg', '2021-01-30 07:13:06', '2021-01-30 07:13:06'),
+(24, 5, NULL, NULL, '6015626a7d13e_building.jpg', '2021-01-30 07:13:06', '2021-01-30 07:13:06'),
+(25, 6, NULL, NULL, '60156403b2fd2_building.jpg', '2021-01-30 07:19:55', '2021-01-30 07:19:55'),
+(26, 6, NULL, NULL, '60156403ea2ba_building.jpg', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(27, 6, NULL, NULL, '601564042c0e4_building.jpg', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(28, NULL, 5, NULL, '60166d7706aa9_project.jpeg', '2021-01-31 02:12:31', '2021-01-31 02:12:31'),
+(29, NULL, 5, NULL, '60166d776fab5_project.jpg', '2021-01-31 02:12:31', '2021-01-31 02:12:31'),
+(30, NULL, 5, NULL, '60166d778daab_project.jpg', '2021-01-31 02:12:31', '2021-01-31 02:12:31'),
+(31, 7, NULL, NULL, '60166dace5807_building.jpg', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(32, 7, NULL, NULL, '60166dad13a9c_building.jpg', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(33, 7, NULL, NULL, '60166dad273f4_building.jpg', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(34, NULL, 6, NULL, '601676336a46b_project.jpg', '2021-01-31 02:49:47', '2021-01-31 02:49:47'),
+(35, NULL, 6, NULL, '601676338f316_project.jpg', '2021-01-31 02:49:47', '2021-01-31 02:49:47'),
+(36, NULL, 6, NULL, '60167633a8713_project.jpg', '2021-01-31 02:49:47', '2021-01-31 02:49:47'),
+(37, NULL, 6, NULL, '60167633b9ac7_project.jpeg', '2021-01-31 02:49:48', '2021-01-31 02:49:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `building_id` int(11) NOT NULL,
+  `price` int(11) DEFAULT NULL,
+  `width` double(8,2) DEFAULT NULL,
+  `height` double(8,2) DEFAULT NULL,
+  `sell_status` int(11) NOT NULL DEFAULT 0,
+  `information` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `room_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `building_id`, `price`, `width`, `height`, `sell_status`, `information`, `room_number`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, NULL, NULL, 0, NULL, '1 F', '2021-01-30 02:13:05', '2021-01-30 02:13:05'),
+(2, 1, NULL, NULL, NULL, 0, NULL, '2 F', '2021-01-30 02:13:05', '2021-01-30 02:13:05'),
+(3, 1, NULL, NULL, NULL, 0, NULL, '3 F', '2021-01-30 02:13:05', '2021-01-30 02:13:05'),
+(4, 1, NULL, NULL, NULL, 0, NULL, '4 F', '2021-01-30 02:13:05', '2021-01-30 02:13:05'),
+(5, 1, NULL, NULL, NULL, 0, NULL, '5 F', '2021-01-30 02:13:05', '2021-01-30 02:13:05'),
+(6, 1, NULL, NULL, NULL, 0, NULL, '6 F', '2021-01-30 02:13:05', '2021-01-30 02:13:05'),
+(8, 2, NULL, NULL, NULL, 0, NULL, '1 F', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(9, 2, NULL, NULL, NULL, 0, NULL, '2 F', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(10, 2, NULL, NULL, NULL, 0, NULL, '3 F', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(11, 2, NULL, NULL, NULL, 0, NULL, '4 F', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(12, 2, NULL, NULL, NULL, 0, NULL, '5 F', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(13, 2, NULL, NULL, NULL, 0, NULL, '6 F', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(14, 2, NULL, NULL, NULL, 0, NULL, '7 F', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(15, 2, NULL, NULL, NULL, 0, NULL, '8 F', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(16, 2, NULL, NULL, NULL, 0, NULL, '9 F', '2021-01-30 02:17:10', '2021-01-30 02:17:10'),
+(17, 1, 2332, 22423.00, 45443.00, 1, NULL, 'Bardar', '2021-01-30 02:20:37', '2021-01-31 02:08:28'),
+(24, 2, NULL, NULL, NULL, 0, NULL, '10 F', '2021-01-30 02:48:37', '2021-01-30 02:48:37'),
+(25, 2, NULL, NULL, NULL, 0, NULL, '11 F', '2021-01-30 02:48:37', '2021-01-30 02:48:37'),
+(26, 2, NULL, NULL, NULL, 0, NULL, '12 F', '2021-01-30 02:48:37', '2021-01-30 02:48:37'),
+(27, 3, 2332, 22423.00, 45443.00, 1, NULL, '1 F', '2021-01-30 03:39:55', '2021-01-30 03:41:23'),
+(28, 3, NULL, NULL, NULL, 0, NULL, '2 F', '2021-01-30 03:39:55', '2021-01-30 03:39:55'),
+(29, 3, NULL, NULL, NULL, 0, NULL, '3 F', '2021-01-30 03:39:55', '2021-01-30 03:39:55'),
+(30, 3, NULL, NULL, NULL, 0, NULL, '4 F', '2021-01-30 03:39:55', '2021-01-30 03:39:55'),
+(31, 3, NULL, NULL, NULL, 0, NULL, '5 F', '2021-01-30 03:39:55', '2021-01-30 03:39:55'),
+(32, 3, NULL, NULL, NULL, 0, NULL, '6 F', '2021-01-30 03:39:55', '2021-01-30 03:39:55'),
+(34, 3, NULL, NULL, NULL, 0, NULL, '6 F', '2021-01-30 03:40:47', '2021-01-30 03:40:47'),
+(35, 4, NULL, NULL, NULL, 0, NULL, '1 F', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(36, 4, NULL, NULL, NULL, 0, NULL, '2 F', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(37, 4, NULL, NULL, NULL, 0, NULL, '3 F', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(38, 4, NULL, NULL, NULL, 0, NULL, '4 F', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(39, 4, NULL, NULL, NULL, 0, NULL, '5 F', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(40, 4, NULL, NULL, NULL, 0, NULL, '6 F', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(41, 4, NULL, NULL, NULL, 0, NULL, '7 F', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(42, 4, NULL, NULL, NULL, 0, NULL, '8 F', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(43, 4, NULL, NULL, NULL, 0, NULL, '9 F', '2021-01-30 06:57:04', '2021-01-30 06:57:04'),
+(44, 5, NULL, NULL, NULL, 0, NULL, '1 R', '2021-01-30 07:13:06', '2021-01-30 07:13:06'),
+(45, 5, NULL, NULL, NULL, 0, NULL, '2 R', '2021-01-30 07:13:06', '2021-01-30 07:13:06'),
+(46, 5, NULL, NULL, NULL, 0, NULL, '3 R', '2021-01-30 07:13:06', '2021-01-30 07:13:06'),
+(47, 5, NULL, NULL, NULL, 0, NULL, '4 R', '2021-01-30 07:13:06', '2021-01-30 07:13:06'),
+(48, 5, NULL, NULL, NULL, 0, NULL, '5 R', '2021-01-30 07:13:06', '2021-01-30 07:13:06'),
+(49, 5, NULL, NULL, NULL, 0, NULL, '6 R', '2021-01-30 07:13:06', '2021-01-30 07:13:06'),
+(50, 6, NULL, NULL, NULL, 0, NULL, 'R1', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(51, 6, NULL, NULL, NULL, 0, NULL, 'R2', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(52, 6, NULL, NULL, NULL, 0, NULL, 'R3', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(53, 6, NULL, NULL, NULL, 0, NULL, 'R4', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(54, 6, NULL, NULL, NULL, 0, NULL, 'R5', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(55, 6, NULL, NULL, NULL, 0, NULL, 'R6', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(56, 6, NULL, NULL, NULL, 0, NULL, 'R7', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(57, 6, NULL, NULL, NULL, 0, NULL, 'R8', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(58, 6, NULL, NULL, NULL, 0, NULL, 'R9', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(59, 6, NULL, NULL, NULL, 0, NULL, 'R10', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(60, 6, NULL, NULL, NULL, 0, NULL, 'R11', '2021-01-30 07:19:56', '2021-01-30 07:19:56'),
+(61, 6, 325, 700.00, 59900.00, 0, NULL, 'R12', '2021-01-30 07:19:56', '2021-01-30 08:18:58'),
+(65, 7, NULL, NULL, NULL, 0, NULL, 'R1', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(66, 7, NULL, NULL, NULL, 0, NULL, 'R2', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(67, 7, NULL, NULL, NULL, 0, NULL, 'R3', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(68, 7, NULL, NULL, NULL, 0, NULL, 'R4', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(69, 7, NULL, NULL, NULL, 0, NULL, 'R5', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(70, 7, NULL, NULL, NULL, 0, NULL, 'R6', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(71, 7, NULL, NULL, NULL, 0, NULL, 'R7', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(72, 7, NULL, NULL, NULL, 0, NULL, 'R8', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(73, 7, NULL, NULL, NULL, 0, NULL, 'R9', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(74, 7, NULL, NULL, NULL, 0, NULL, 'R10', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(75, 7, NULL, NULL, NULL, 0, NULL, 'R11', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(76, 7, NULL, NULL, NULL, 0, NULL, 'R12', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(77, 7, NULL, NULL, NULL, 0, NULL, 'R13', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(78, 7, NULL, NULL, NULL, 0, NULL, 'R14', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(79, 7, NULL, NULL, NULL, 0, NULL, 'R15', '2021-01-31 02:13:25', '2021-01-31 02:13:25'),
+(80, 7, 2300000, 2000.00, 1000.00, 1, NULL, 'R16', '2021-01-31 02:13:25', '2021-01-31 02:13:54'),
+(81, 7, NULL, NULL, NULL, 0, NULL, 'R16', '2021-01-31 02:15:11', '2021-01-31 02:15:11'),
+(82, 7, NULL, NULL, NULL, 0, NULL, 'R17', '2021-01-31 02:15:11', '2021-01-31 02:15:11'),
+(83, 7, NULL, NULL, NULL, 0, NULL, 'R18', '2021-01-31 02:15:11', '2021-01-31 02:15:11'),
+(84, 7, NULL, NULL, NULL, 0, NULL, 'R19', '2021-01-31 02:15:11', '2021-01-31 02:15:11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `teams`
 --
 
@@ -436,6 +664,12 @@ ALTER TABLE `blog_photos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `buildings`
+--
+ALTER TABLE `buildings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
@@ -457,6 +691,12 @@ ALTER TABLE `gallery_photos`
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `owner_infos`
+--
+ALTER TABLE `owner_infos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -487,6 +727,24 @@ ALTER TABLE `product_categories`
 -- Indexes for table `product_photos`
 --
 ALTER TABLE `product_photos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project_photos`
+--
+ALTER TABLE `project_photos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -522,7 +780,13 @@ ALTER TABLE `blog_categories`
 -- AUTO_INCREMENT for table `blog_photos`
 --
 ALTER TABLE `blog_photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `buildings`
+--
+ALTER TABLE `buildings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -540,19 +804,25 @@ ALTER TABLE `galleries`
 -- AUTO_INCREMENT for table `gallery_photos`
 --
 ALTER TABLE `gallery_photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `owner_infos`
+--
+ALTER TABLE `owner_infos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `partners`
 --
 ALTER TABLE `partners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -571,6 +841,24 @@ ALTER TABLE `product_categories`
 --
 ALTER TABLE `product_photos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `project_photos`
+--
+ALTER TABLE `project_photos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `teams`
